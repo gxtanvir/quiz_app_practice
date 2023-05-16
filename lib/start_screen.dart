@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 
-const topAlignment = Alignment.topCenter;
-const bottomAlignment = Alignment.bottomCenter;
-
 class StartScreen extends StatelessWidget {
-  const StartScreen({super.key, required this.colors});
-
-  final List<Color> colors;
-
-  void quizStart() {}
-
+  const StartScreen({super.key});
   @override
   Widget build(context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: colors,
-          begin: topAlignment,
-          end: bottomAlignment,
+          colors: [
+            Color.fromARGB(255, 15, 45, 134),
+            Color.fromARGB(255, 50, 120, 195),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
         ),
       ),
       child: Center(
@@ -26,26 +21,24 @@ class StartScreen extends StatelessWidget {
           children: [
             Image.asset(
               'assets/images/quiz-logo.png',
-              width: 250,
+              width: 200,
             ),
             const SizedBox(
-              height: 40,
+              height: 50,
             ),
             const Text(
-              "Learn Flutter The Fun Way!",
-              style: TextStyle(fontSize: 26, color: Colors.white),
+              "Learn Flutter in a Fun Way!",
+              style: TextStyle(
+                fontSize: 24,
+                color: Color.fromARGB(255, 222, 203, 247),
+              ),
             ),
             const SizedBox(
-              height: 25,
+              height: 30,
             ),
-            ElevatedButton(
-              onPressed: quizStart,
-              child: const Text(
-                "Start Quiz",
-                style: TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                ),
-              ),
+            OutlinedButton(
+              onPressed: () {},
+              child: const Text("Start Quiz"),
             ),
           ],
         ),
