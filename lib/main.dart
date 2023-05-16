@@ -8,9 +8,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: StartScreen(),
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 15, 45, 134),
+                Color.fromARGB(255, 50, 120, 195),
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: const StartScreen(),
+        ),
       ),
     );
   }
