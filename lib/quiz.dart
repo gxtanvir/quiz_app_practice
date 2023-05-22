@@ -29,7 +29,7 @@ class _QuizState extends State<Quiz> {
     }
     return MaterialApp(
       home: Scaffold(
-        body: Container(
+        body: Container( 
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
