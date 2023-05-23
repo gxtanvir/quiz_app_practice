@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartScreen extends StatelessWidget {
-
   final void Function() quizStart;
 
   const StartScreen(this.quizStart, {super.key});
-  
+
   @override
   Widget build(context) {
     return Center(
@@ -20,11 +20,12 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          const Text(
+          Text(
             "Learn Flutter in a Fun Way!",
-            style: TextStyle(
-              fontSize: 24,
-              color: Color.fromARGB(255, 228, 238, 246),
+            style: GoogleFonts.rubik(
+              color: Colors.white,
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(

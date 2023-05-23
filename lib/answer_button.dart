@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 class AnswerButton extends StatelessWidget {
   const AnswerButton({super.key, required this.onTap, required this.answer});
 
@@ -20,6 +20,7 @@ class AnswerButton extends StatelessWidget {
       onPressed: onTap,
       child: Text(
         answer,
+        style: GoogleFonts.rubik(),
         textAlign: TextAlign.center,
       ),
     );
