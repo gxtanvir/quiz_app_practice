@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quiz_app/data/questions.dart';
+import 'package:quiz_app/quiz_summary.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key});
+  const ResultScreen({super.key, required this.chosenAnswer});
+  final List<String> chosenAnswer;
+
+  List<Map<String, Object>> getSummaryData() {
+    final List<Map<String, Object>> summery = [];
+
+    for (int i = 0; i < chosenAnswer.length; i++) {
+      summery.add(
+        {
+          'question_index' : i,
+          'question' : questions[i].text,
+          'currect_answer' : questions[i].answers[0],
+          'user_answer' : chosenAnswer[i]
+        }
+      );
+    }
+    return summery;
+  }
 
   @override
   Widget build(context) {
@@ -19,9 +38,7 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const Text(
-              'Thank you for Quiz',
-            ),
+            QuizSummary(summaryData: getSummaryData()),
             const SizedBox(
               height: 30,
             ),
