@@ -11,20 +11,23 @@ class ResultScreen extends StatelessWidget {
     final List<Map<String, Object>> summery = [];
 
     for (int i = 0; i < chosenAnswer.length; i++) {
-      summery.add(
-        {
-          'question_index' : i,
-          'question' : questions[i].text,
-          'currect_answer' : questions[i].answers[0],
-          'user_answer' : chosenAnswer[i]
-        }
-      );
+      summery.add({
+        'question_index': i,
+        'question': questions[i].text,
+        'currect_answer': questions[i].answers[0],
+        'user_answer': chosenAnswer[i]
+      });
     }
     return summery;
   }
 
   @override
   Widget build(context) {
+    final summaryData = getSummaryData();
+    final numTotalQuestion = questions.length;
+    final numCorrectQuestion = summaryData.where((data) {
+      return data['user_answer'] == data['currect_answer'];
+    }).length;
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -32,13 +35,13 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'You have chosen X out of Y correctly',
+            Text(
+              'You have chosen $numCorrectQuestion out of $numTotalQuestion questions correctly',
             ),
             const SizedBox(
               height: 30,
             ),
-            QuizSummary(summaryData: getSummaryData()),
+            QuizSummary(summaryData: summaryData),
             const SizedBox(
               height: 30,
             ),
