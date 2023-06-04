@@ -38,7 +38,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
             Text(
               currentQuestion.text,
               style: GoogleFonts.rubik(
-                color: const Color.fromARGB(255, 215, 212, 255),
+                color: const Color.fromARGB(255, 218, 215, 253),
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
